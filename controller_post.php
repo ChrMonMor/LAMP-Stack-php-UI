@@ -57,7 +57,7 @@
 
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         require_once "config.php";
-        $sql = "SELECT * FROM controllers";
+        $sql = "SELECT c.id as id, c.ip as ip, c.types as types, c.created_at as created_at, l.name as name FROM `controllers` c join locations l on l.id = c.location;";
         $data = [];
         try {
             $stmt = $pdo->query($sql);
